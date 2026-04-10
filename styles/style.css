@@ -44,7 +44,7 @@ body {
   background-color: var(--bs-dark);
 }
 .page-title {
-  color: var(--bs-pink);
+  color: var(--bs-success);
 }
 .page-description {
   color: var(--bs-light);
