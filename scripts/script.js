@@ -1,4 +1,14 @@
-const teamContainer = document.querySelector(".team-container>.row")
+const dom = {
+    teamContainer: document.querySelector(".team-container>.row"),
+    formData:{
+        formEl: document.querySelector(".form-container>.form"),
+        formNameEl: document.querySelector(".form-name"),
+        formRoleEl: document.querySelector(".form-role"),
+        formEmailEl: document.querySelector(".form-email"),
+        formImageEl: document.querySelector(".form-image"),
+    }
+}
+
 
 function createElement(teamMember){
     const tmpString = `
@@ -26,7 +36,7 @@ function renderTeam(){
     for(member of teamMembers){
         tmpString += createElement(member);
     }
-    teamContainer.innerHTML = tmpString;
+    dom.teamContainer.innerHTML = tmpString;
 }
 
 renderTeam();
