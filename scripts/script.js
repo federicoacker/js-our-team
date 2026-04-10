@@ -78,8 +78,44 @@ function formSubmitHandler(event){
     if(errorFlag){
         return;
     }
-
-    
+    // Creazione nuovo member:
+    const newMember = createMember(name, role, email, image);
+    // Aggiunta nuovo member:
+    const [result, resultMessage] = addMember(newMember);
+    // Controllo finale per l'errore:
+    if(!result){
+        console.error(resultMessage);
+    }
+    //Solo alla fine, faccio il render
+    renderTeam();
 }
+function createMember(name, role, email, img){
+    const newMember = {
+        name,
+        role,
+        email,
+        img
+    }
+    return newMember;
+}
+function addMember(member){
+    if(typeof(member) !== "object"){
+        return [false, "Ciò che hai passato ad addMember non è un oggetto"];
+    }
+    if(!member.name){
+        return [false, "Ciò che hai passato ad addMember non ha la proprietà name"];
+    }
+    if(!member.role){
+        return [false, "Ciò che hai passato ad addMember non ha la proprietà role"];
+    }
+    if(!member.email){
+        return [false, "Ciò che hai passato ad addMember non ha la proprietà email"];
+    }
+    if(!member.img){
+        return [false, "Ciò che hai passato ad addMember non ha la proprietà img"];
+    }
 
+    teamMembers.push(member);
+    return [true, null];
+}
 dom.formData.formEl.addEventListener("submit", formSubmitHandler);
