@@ -51,9 +51,35 @@ function validateString(string){
 
 function formSubmitHandler(event){
     event.preventDefault();
+    const errorFlag = false;
     const {formNameEl, formRoleEl, formEmailEl, formImageEl} = dom.formData;
     // validazione:
+    const [nameResult, name] = validateString(formNameEl.value);
+    const [roleResult, role] = validateString(formRoleEl.value);
+    const [emailResult, email] = validateString(formEmailEl.value);
+    const [imageResult, image] = validateString(formImageEl.value);
 
+    if(!nameResult){
+        console.error("Nome inserito non valido");
+        errorFlag = true;
+    }
+    if(!roleResult){
+        console.error("Ruolo inserito non valido");
+        errorFlag = true;
+    }
+    if(!emailResult){
+        console.error("Email inserita non valida");
+        errorFlag = true;
+    }
+    if(!imageResult){
+        console.error("Immagine inserita non valida");
+        errorFlag = true;
+    }
+    if(errorFlag){
+        return;
+    }
+
+    
 }
 
 dom.formData.formEl.addEventListener("submit", formSubmitHandler);
