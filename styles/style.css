@@ -31,6 +31,9 @@
   border: 2px solid var(--bs-success);
   box-shadow: 0px 0px 10px var(--bs-success);
 }
+.card-name{
+    font-size: 30px;
+}
 
 body {
   font-family: "Bitcount Grid Double";
