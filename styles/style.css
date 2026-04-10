@@ -49,3 +49,14 @@ body {
 .page-description {
   color: var(--bs-light);
 }
+
+.form-title{
+    color:var(--bs-light);
+}
+.form input:hover{
+    box-shadow: 0 0 10px var(--bs-success);
+}
+.form input:focus{
+    border: 2px solid var(--bs-success);
+    box-shadow: 0 0 10px var(--bs-success);
+}
