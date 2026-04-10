@@ -94,7 +94,7 @@ function createMember(name, role, email, img){
         name,
         role,
         email,
-        img
+        img: `./img/${img}`
     }
     return newMember;
 }
