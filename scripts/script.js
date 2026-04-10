@@ -39,8 +39,6 @@ function renderTeam(){
     dom.teamContainer.innerHTML = tmpString;
 }
 
-renderTeam();
-
 function validateString(string){
     const sanitizedString = string.trim();
     if(sanitizedString === ""){
@@ -118,4 +116,6 @@ function addMember(member){
     teamMembers.push(member);
     return [true, null];
 }
+
+renderTeam();
 dom.formData.formEl.addEventListener("submit", formSubmitHandler);
