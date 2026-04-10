@@ -41,10 +41,19 @@ function renderTeam(){
 
 renderTeam();
 
+function validateString(string){
+    const sanitizedString = string.trim();
+    if(sanitizedString === ""){
+        return false;
+    }
+    return [true, sanitizedString];
+}
+
 function formSubmitHandler(event){
     event.preventDefault();
     const {formNameEl, formRoleEl, formEmailEl, formImageEl} = dom.formData;
-    console.log(formNameEl, formRoleEl, formEmailEl, formImageEl);
+    // validazione:
+
 }
 
 dom.formData.formEl.addEventListener("submit", formSubmitHandler);
