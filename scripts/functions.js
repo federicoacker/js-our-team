@@ -52,7 +52,7 @@ function validateString(string){
     return [true, sanitizedString];
 }
 
-//Funzione handler per il submit della form
+//Funzione handler per il submit della form restituisce false se ci sono errori
 function formSubmitHandler(event){
     event.preventDefault(); // sbarazziamoci del refresh di pagina
     const errorFlag = false; // flag di errore, se dovesse succedere qualcosa durante la validazione
@@ -82,7 +82,7 @@ function formSubmitHandler(event){
     }
     //Alla fine, se la errorFlag è true, c'è stato un problema, che abbiamo mandato in console già, e usciamo dalla funzione
     if(errorFlag){
-        return;
+        return false;
     }
     //Altrimenti, abbiamo tutte le nostre stringhe sanificate
     // Creazione nuovo member:
@@ -92,8 +92,13 @@ function formSubmitHandler(event){
     // Controllo finale per l'errore:
     if(!result){
         console.error(resultMessage);
-        return;
+        return false;
     }
+    //Già che ci sono pulisco i campi di input
+    formNameEl.value = "";
+    formRoleEl.value = "";
+    formEmailEl.value= "";
+    formImageEl.value= "";
     //Solo alla fine, faccio il render
     renderTeam();
 }
