@@ -2,10 +2,10 @@ const dom = {
     teamContainer: document.querySelector(".team-container>.row"),
     formData:{
         formEl: document.querySelector(".form-container>.form"),
-        formNameEl: document.querySelector(".form-name"),
-        formRoleEl: document.querySelector(".form-role"),
-        formEmailEl: document.querySelector(".form-email"),
-        formImageEl: document.querySelector(".form-image"),
+        formNameEl: document.querySelector("#form-name"),
+        formRoleEl: document.querySelector("#form-role"),
+        formEmailEl: document.querySelector("#form-email"),
+        formImageEl: document.querySelector("#form-image"),
     }
 }
 
@@ -40,3 +40,11 @@ function renderTeam(){
 }
 
 renderTeam();
+
+function formSubmitHandler(event){
+    event.preventDefault();
+    const {formNameEl, formRoleEl, formEmailEl, formImageEl} = dom.formData;
+    console.log(formNameEl, formRoleEl, formEmailEl, formImageEl);
+}
+
+dom.formData.formEl.addEventListener("submit", formSubmitHandler);
